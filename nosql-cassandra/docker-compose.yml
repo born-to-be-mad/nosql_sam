@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  cassandra:
+    image: datastax/dse-server:6.8.1
+    container_name: cassandra
+    environment:
+      DS_LICENSE: accept
+      MAX_HEAP_SIZE: 1000000000
+    ports:
+      - "9042:9042"
+    cap_add:
+      - IPC_LOCK
+    ulimits:
+      memlock: -1
+    networks:
+      - network1
+  opscenter:
+    image: datastax/dse-opscenter:6.8.0
+    environment:
+      DS_LICENSE: accept
+    ports:
+      - "8888:8888"
+    networks:
+      - network1
+  studio:
+    image: datastax/dse-studio:6.8.1
+    ports:
+      - "9091:9091"
+    environment:
+      DS_LICENSE: accept
+    networks:
+      - network1
+networks:
+  network1:
+    driver: bridge
