@@ -2,6 +2,7 @@ package it.discovery.nosql.repository;
 
 import it.discovery.nosql.model.Book;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
@@ -23,7 +24,8 @@ public interface BookRepository extends MongoRepository<Book, String> {
 	 * @param name
 	 * @return
 	 */
-	//List<Book> findByName(String name);
+	@Query("{ 'names.name' : ?0 }")
+	List<Book> findByName(String name);
 
 	/**
 	 * Returns all the books that has at least one review

@@ -40,4 +40,11 @@ public class Book extends BaseEntity {
 		}
 		reviews.add(review);
 	}
+
+	public void addTranslation(String name, String locale) {
+		if (names == null) {
+			names = new ArrayList<>();
+		}
+		names.add(new Translation(name, locale));
+	}
 }
