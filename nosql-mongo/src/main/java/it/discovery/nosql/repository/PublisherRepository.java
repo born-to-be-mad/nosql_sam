@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import it.discovery.nosql.model.Publisher;
 
-public interface PublisherRepository extends MongoRepository<Publisher, Integer> {
+public interface PublisherRepository extends MongoRepository<Publisher, String> {
 
 }

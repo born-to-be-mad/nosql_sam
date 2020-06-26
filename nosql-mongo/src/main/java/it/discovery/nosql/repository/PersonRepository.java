@@ -6,12 +6,12 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import it.discovery.nosql.model.Person;
 
-public interface PersonRepository  extends MongoRepository<Person, Integer> {
+public interface PersonRepository extends MongoRepository<Person, String> {
 
-	/**
-	 * Returns all the persons sorted by name
-	 *
-	 * @return
-	 */
-	List<Person> findByOrderByNameAsc();
+    /**
+     * Returns all the persons sorted by name
+     *
+     * @return
+     */
+    List<Person> findByOrderByNameAsc();
 }

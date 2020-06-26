@@ -2,16 +2,21 @@ package it.discovery.nosql.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Book in a library
  */
 @Getter
 @Setter
+@Document(collection = "books")
+@ToString
 public class Book extends BaseEntity {
 	// Attribute pattern: we have to query/sort documents that have similar subset of fields
 	private List<Translation> names;
