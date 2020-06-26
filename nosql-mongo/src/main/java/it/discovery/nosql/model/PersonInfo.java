@@ -5,9 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Review extends BaseEntity {
+public class PersonInfo {
+    private int id;
 
-    private String comment;
-
-    private int rate;
+    private String name;
 }
