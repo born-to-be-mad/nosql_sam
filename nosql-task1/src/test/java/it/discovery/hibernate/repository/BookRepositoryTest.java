@@ -24,6 +24,7 @@ public class BookRepositoryTest {
 	void findWithReviews_returnsSingleBook() {
 		Person author = new Person();
 		author.setName("Gavin King");
+
 		Publisher publisher = new Publisher();
 		publisher.setName("Packt");
 

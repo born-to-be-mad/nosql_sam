@@ -20,11 +20,12 @@ public class PublisherRepositoryTest {
 
 	@Test
 	void findAll_returnsAllPublishers() {
-		Publisher publisher = new Publisher();
-		publisher.setName("Packt");
 		Contact contact = new Contact();
 		contact.setEmail("info@packt.com");
 		contact.setPhone("1234567");
+
+		Publisher publisher = new Publisher();
+		publisher.setName("Packt");
 		publisher.setContact(contact);
 
 		publisherRepository.save(publisher);

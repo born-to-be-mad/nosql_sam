@@ -2,25 +2,28 @@ package it.discovery.nosql.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Book in a library
  */
 @Getter
 @Setter
-@Document(collection = "books")
 public class Book extends BaseEntity {
+	// Attribute pattern: we have to query/sort documents that have similar subset of fields
 	private List<Translation> names;
 
 	private Complexity complexity;
 
-	private PersonInfo person;
+	private Person author;
 
-	private String publisherId;
+	private Publisher publisher;
+
+	// Document version pattern
+	//private List<Publisher> previousPublishers;
 
 	/**
 	 * Publishing year
@@ -32,12 +35,24 @@ public class Book extends BaseEntity {
 	 */
 	private int pages;
 
+	//private Review latestReview;
+
 	private List<Review> reviews;
+
+	// Computed pattern: recalculate on AddReview o
+	@Getter
+	private double rating;
 
 	public void addReview(Review review) {
 		if (reviews == null) {
 			reviews = new ArrayList<>();
 		}
 		reviews.add(review);
+
+		rating = reviews.parallelStream()
+				   	    .collect(Collectors.summarizingDouble(Review::getRate))
+						.getAverage();
+
+		review.setBook(this);
 	}
 }
