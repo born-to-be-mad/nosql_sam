@@ -1,10 +1,12 @@
 package it.discovery.nosql.repository;
 
-import it.discovery.nosql.model.Book;
-
 import java.util.List;
 
-public interface BookRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import it.discovery.nosql.model.Book;
+
+public interface BookRepository extends MongoRepository<Book, Integer> {
 
 	/**
 	 * Saves this book instance
@@ -52,7 +54,6 @@ public interface BookRepository {
 	 * ignore them
 	 *
 	 * @param name
-	 * @param pages
 	 * @return
 	 */
 	List<Book> findAllByAuthor_Name(String name);

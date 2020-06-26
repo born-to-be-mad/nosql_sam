@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Book in a library
@@ -12,17 +13,17 @@ import java.util.List;
 @Getter
 @Setter
 public class Book extends BaseEntity {
-	private String nameEn;
-
-	private String nameRu;
-
-	private String nameUk;
+	// Attribute pattern: we have to query/sort documents that have similar subset of fields
+	private List<Translation> names;
 
 	private Complexity complexity;
 
 	private Person author;
 
 	private Publisher publisher;
+
+	// Document version pattern
+	//private List<Publisher> previousPublishers;
 
 	/**
 	 * Publishing year
@@ -34,13 +35,24 @@ public class Book extends BaseEntity {
 	 */
 	private int pages;
 
+	//private Review latestReview;
+
 	private List<Review> reviews;
+
+	// Computed pattern: recalculate on AddReview o
+	@Getter
+	private double rating;
 
 	public void addReview(Review review) {
 		if (reviews == null) {
 			reviews = new ArrayList<>();
 		}
 		reviews.add(review);
+
+		rating = reviews.parallelStream()
+				   	    .collect(Collectors.summarizingDouble(Review::getRate))
+						.getAverage();
+
 		review.setBook(this);
 	}
 }
