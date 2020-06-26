@@ -15,3 +15,4 @@ public class Translation {
     private String text;
     private String locale;
 }
+

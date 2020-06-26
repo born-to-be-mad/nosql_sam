@@ -18,9 +18,9 @@ public class Book extends BaseEntity {
 
 	private Complexity complexity;
 
-	private Person author;
+	private PersonInfo person;
 
-	private Publisher publisher;
+	private int publisherId;
 
 	// Document version pattern
 	//private List<Publisher> previousPublishers;
@@ -53,6 +53,5 @@ public class Book extends BaseEntity {
 				   	    .collect(Collectors.summarizingDouble(Review::getRate))
 						.getAverage();
 
-		review.setBook(this);
 	}
 }
