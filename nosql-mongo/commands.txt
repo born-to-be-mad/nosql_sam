@@ -1,0 +1,47 @@
+use sample
+db.dropDatabase();
+
+show collections
+/*drop all collections*/
+db.getCollectionNames().forEach(function(c) {
+    if (c.indexOf("system.") == -1) db[c].drop();
+})
+
+db.getCollectionNames().forEach(
+    function(collection_name) {
+        db[collection_name].remove()
+    }
+);
+
+db.getCollectionNames().forEach( function(collection_name) {
+    if (collection_name.indexOf("system.") == -1)
+        db[collection_name].drop();
+    else
+        db.collection_name.remove({});
+});
+
+/*To delete particular document in collections:*/
+db.mycollection.remove( {name:"stack"} )
+
+/*To delete all documents in collections:*/
+db.mycollection.remove()
+
+/*To delete collection :*/
+db.mycollection.drop()
+
+db.createCollection('contacts');
+db.createCollection('customers');
+db.createCollection('persons');
+db.createCollection('publishers');
+db.createCollection('complexity');
+
+db.books .find()
+db.persons .find()
+
+
+db.persons .insert({
+    name: "James",
+    surname: "Bond",
+    age:  35
+})
+
