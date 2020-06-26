@@ -59,4 +59,11 @@ public class Book extends BaseEntity {
 						.getAverage();
 
 	}
+
+	public void addTranslation(String name, String locale) {
+		if (names == null) {
+			names = new ArrayList<>();
+		}
+		names.add(new Translation(name, locale));
+	}
 }
