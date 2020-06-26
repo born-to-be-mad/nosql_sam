@@ -20,7 +20,7 @@ public class Book extends BaseEntity {
 
 	private PersonInfo person;
 
-	private int publisherId;
+	private String publisherId;
 
 	/**
 	 * Publishing year
