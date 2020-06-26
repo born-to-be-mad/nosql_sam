@@ -4,15 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.config.EnableMongoAuditing;
 
 import it.discovery.nosql.repository.BookRepository;
 import it.discovery.nosql.repository.PersonRepository;
 import it.discovery.nosql.repository.PublisherRepository;
+import it.discovery.nosql.service.BookService;
 
 @SpringBootApplication
 @EnableMongoAuditing
 public class MongoApplication implements CommandLineRunner {
+
+    @Bean
+    public BookService bookService(BookRepository bookRepository) {
+        return new BookService(bookRepository);
+    }
 
     @Autowired
     private BookRepository bookRepository;

@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Translation {
-    private String text;
+    private String name;
     private String locale;
 }
 

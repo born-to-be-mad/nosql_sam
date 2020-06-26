@@ -6,7 +6,10 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 @RequiredArgsConstructor
+@Service
 public class BookService {
 
 	private final BookRepository bookRepository;
