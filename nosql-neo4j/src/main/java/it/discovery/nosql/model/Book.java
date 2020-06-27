@@ -3,6 +3,7 @@ package it.discovery.nosql.model;
 import lombok.Getter;
 import lombok.Setter;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +23,10 @@ public class Book extends BaseEntity {
 
 	private Complexity complexity;
 
+	@Relationship("WRITTEN_BY")
 	private Person author;
 
+	@Relationship("PUBLISHED_BY")
 	private Publisher publisher;
 
 	/**
