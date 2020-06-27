@@ -1,5 +1,8 @@
 package it.discovery.nosql.repository;
 
-public interface PublisherRepository {
+import it.discovery.nosql.model.Publisher;
+import org.springframework.data.neo4j.repository.Neo4jRepository;
+
+public interface PublisherRepository extends Neo4jRepository<Publisher, String> {
 
 }
