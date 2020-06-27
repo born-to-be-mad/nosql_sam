@@ -1,0 +1,30 @@
+spring:
+  data:
+    cassandra:
+      contact-points:
+        -127.0.0.1:9042
+      local-datacenter: dc1
+      connection:
+        connect-timeout: 10s
+        init-query-timeout: 5s
+      keyspace-name: shop
+      request:
+        serial-consistency: any
+      schema-action: recreate
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          cassandra:
+            core:
+              cql:
+                CqlTemplate: DEBUG
+    com:
+      datastax:
+        driver:
+          core:
+            QueryLogger:
+              NORMAL: DEBUG
+              SLOW: TRACE
