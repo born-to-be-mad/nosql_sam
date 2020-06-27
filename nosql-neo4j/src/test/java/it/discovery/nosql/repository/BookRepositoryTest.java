@@ -7,10 +7,6 @@ import it.discovery.nosql.model.Review;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class BookRepositoryTest {
 
 	@Autowired
@@ -37,11 +33,7 @@ public class BookRepositoryTest {
 		review.setComment("good");
 		review.setRate(10);
 		book2.addReview(review);
-		//bookRepository.saveAll(List.of(book1, book2));
 
-		List<Book> books = bookRepository.findWithReviews();
-		assertEquals(1, books.size());
-		assertEquals("Hibernate", books.get(0).getNameEn());
 	}
 
 }

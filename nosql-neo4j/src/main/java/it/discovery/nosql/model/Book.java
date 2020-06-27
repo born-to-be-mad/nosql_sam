@@ -2,6 +2,7 @@ package it.discovery.nosql.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.neo4j.ogm.annotation.NodeEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  */
 @Getter
 @Setter
+@NodeEntity
 public class Book extends BaseEntity {
 	private String nameEn;
 
