@@ -3,3 +3,14 @@ spring:
     neo4j:
       username: neo4j
       password: admin
+
+
+logging:
+  level:
+    org:
+      neo4j:
+        ogm:
+          drivers:
+            bolt:
+              request:
+                BoltRequest: DEBUG
