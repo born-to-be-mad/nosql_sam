@@ -22,7 +22,7 @@ public abstract class BaseEntity {
     @LastModifiedDate
     private LocalDateTime modified;
 
-    public BaseEntity(String id) {
+    public BaseEntity() {
         this.id = UUID.randomUUID()
                       .toString();
     }
