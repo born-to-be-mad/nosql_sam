@@ -1,0 +1,8 @@
+spring:
+  data:
+    cassandra:
+      contact-points:
+        - 127.0.0.1:9042
+      local-datacenter: datacenter1
+    keyspace-name: shop
+    schema-action: create-if-not-exists
