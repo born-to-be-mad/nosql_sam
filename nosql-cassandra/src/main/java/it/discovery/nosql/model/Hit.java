@@ -11,6 +11,9 @@ import java.util.UUID;
 @Getter
 @Setter
 @Table("hits")
+/**
+ * CREATE TABLE hits(id text,customerId text, bookId text, viewed timestamp, ip text, PRIMARY KEY(bookId, customerId));
+ */
 public class Hit {
     @Id
     private String id;
