@@ -7,6 +7,20 @@ import java.util.List;
 public interface BookRepository {
 
 	/**
+	 * Returns most popular books sorted by number views
+	 *
+	 * @return
+	 */
+	List<Book> findMostViewed();
+
+	/**
+	 * Returns most popular books sorted by number of orders
+	 *
+	 * @return
+	 */
+	List<Book> findMostOrders();
+
+	/**
 	 * Saves this book instance
 	 *
 	 * @param book
